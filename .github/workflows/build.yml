@@ -43,9 +43,13 @@ jobs:
           pip install flet flet-cli
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Clean previous builds
+        run: |
+          rm -rf build .flet
+
       - name: Build Android APK
         run: |
-          flet build apk -v --yes
+          flet build apk --python-version 3.12.8 -v --yes
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
