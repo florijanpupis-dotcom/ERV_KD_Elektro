@@ -29,7 +29,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: "stable"
+          flutter-version: "3.44.8"
 
       - name: Install dependencies & Flet CLI
         run: |
@@ -39,7 +39,7 @@ jobs:
 
       - name: Build Android APK
         run: |
-          flet build apk -v
+          flet build apk -v --yes
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
